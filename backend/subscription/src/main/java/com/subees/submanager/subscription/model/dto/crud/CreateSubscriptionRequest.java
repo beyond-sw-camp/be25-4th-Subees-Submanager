@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class CreateSubscriptionRequest {
 
-    private Long categoryId;
+    private Long categoryId;   // test
     private Long itemId;       // 기존 항목 선택 시 사용
     private String itemName;   // 직접 입력 시 사용
 
