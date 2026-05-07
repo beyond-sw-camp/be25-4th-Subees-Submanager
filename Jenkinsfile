@@ -64,10 +64,20 @@ spec:
                     echo "SHOULD_BUILD_FRONT : ${env.SHOULD_BUILD_FRONT}"
                     echo "SHOULD_BUILD_BACK : ${env.SHOULD_BUILD_BACK}"
                     echo "ONLY_K8S_CHANGED : ${env.ONLY_K8S_CHANGED}"
+
+                    if (env.ONLY_K8S_CHANGED == "true") {
+                        echo "Only k8s manifest changed. Docker image build will be skipped."
+                    }
                 }
             }
         }
 
+        stage('Docker Login') {
+            when {
+                expression {
+                    return env.SHOULD_BUILD_FRONT == "true" || env.SHOULD_BUILD_BACK == "true"
+                }
+            }
 
             steps {
                 container('docker') {
@@ -161,7 +171,7 @@ spec:
                 }
             }
         }
-
+    }
 
     post {
         success {
