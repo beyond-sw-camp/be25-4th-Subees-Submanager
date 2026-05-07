@@ -21,16 +21,28 @@
 <img src="https://img.shields.io/badge/Spring%20Boot-0f172a?style=for-the-badge&logo=springboot&logoColor=white" />
 <img src="https://img.shields.io/badge/Spring%20Security-0f172a?style=for-the-badge&logo=springsecurity&logoColor=white" />
 <img src="https://img.shields.io/badge/MyBatis-0f172a?style=for-the-badge&logoColor=white" />
+<img src="https://img.shields.io/badge/JWT-0f172a?style=for-the-badge&logo=jsonwebtokens&logoColor=white" />
 
-### Database & Tools
+### Infra
+<img src="https://img.shields.io/badge/Docker-1e293b?style=for-the-badge&logo=docker&logoColor=white" />
+<img src="https://img.shields.io/badge/Kubernetes-1e293b?style=for-the-badge&logo=kubernetes&logoColor=white" />
+<img src="https://img.shields.io/badge/Nginx-1e293b?style=for-the-badge&logo=nginx&logoColor=white" />
+
+### CI/CD
+<img src="https://img.shields.io/badge/Jenkins-334155?style=for-the-badge&logo=jenkins&logoColor=white" />
+<img src="https://img.shields.io/badge/Docker%20Hub-334155?style=for-the-badge&logo=docker&logoColor=white" />
+<img src="https://img.shields.io/badge/Argo%20CD-334155?style=for-the-badge&logo=argo&logoColor=white" />
+
+### Database
 <img src="https://img.shields.io/badge/MariaDB-1f2937?style=for-the-badge&logo=mariadb&logoColor=white" />
-<img src="https://img.shields.io/badge/Postman-1f2937?style=for-the-badge&logo=postman&logoColor=white" />
 <img src="https://img.shields.io/badge/HeidiSQL-1f2937?style=for-the-badge&logoColor=white" />
 
 ### Collaboration
 <img src="https://img.shields.io/badge/GitHub-6b7280?style=for-the-badge&logo=github&logoColor=white" />
+<img src="https://img.shields.io/badge/Discord-6b7280?style=for-the-badge&logo=discord&logoColor=white" />
 <img src="https://img.shields.io/badge/Notion-6b7280?style=for-the-badge&logo=notion&logoColor=white" />
 <img src="https://img.shields.io/badge/Figma-6b7280?style=for-the-badge&logo=figma&logoColor=white" />
+<img src="https://img.shields.io/badge/Postman-6b7280?style=for-the-badge&logo=postman&logoColor=white" />
 
 </div>
 
