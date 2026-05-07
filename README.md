@@ -258,6 +258,8 @@
 <details>
 <summary><b>🔨 빌드 및 배포 스크립트</b></summary>
 <br>
+<details>
+  <summary>JenkinsFile - Subees </summary>
 
 ```groovy
 pipeline {
@@ -467,6 +469,102 @@ spec:
 }
 ```
 
+</details>
+
+<details>
+  <summary>JenkinsFile - K8s </summary>
+  
+```groovy
+  pipeline {
+    agent any
+
+    parameters {
+        string(name: 'DOCKER_IMAGE_VERSION', defaultValue: '', description: 'Docker Image Version')
+        string(name: 'DID_BUILD_FRONT', defaultValue: 'false', description: 'Did Build Frontend')
+        string(name: 'DID_BUILD_BACK', defaultValue: 'false', description: 'Did Build Backend')
+    }
+
+    environment {
+        GIT_BRANCH = 'main'
+    }
+
+    stages {
+        stage('Checkout Main Branch') {
+            steps {
+                checkout scm
+
+                sh '''
+                    git config --global --add safe.directory "$WORKSPACE"
+                    git checkout main || git checkout -B main origin/main
+                '''
+
+                echo "DOCKER_IMAGE_VERSION: ${params.DOCKER_IMAGE_VERSION}"
+                echo "DID_BUILD_FRONT: ${params.DID_BUILD_FRONT}"
+                echo "DID_BUILD_BACK: ${params.DID_BUILD_BACK}"
+            }
+        }
+
+        stage('Update Frontend deploy.yaml') {
+            when {
+                expression {
+                    return params.DID_BUILD_FRONT == "true"
+                }
+            }
+
+            steps {
+                sh """
+                    echo "Received Docker Image Version : ${params.DOCKER_IMAGE_VERSION}"
+                    sed -i "s|image: myang12/subees-frontend:.*|image: myang12/subees-frontend:${params.DOCKER_IMAGE_VERSION}|g" k8s/frontend/deployment.yaml
+                    grep -n "image:" k8s/frontend/deployment.yaml
+                """
+            }
+        }
+
+        stage('Update Backend deploy.yaml') {
+            when {
+                expression {
+                    return params.DID_BUILD_BACK == "true"
+                }
+            }
+
+            steps {
+                sh """
+                    echo "Received Docker Image Version : ${params.DOCKER_IMAGE_VERSION}"
+                    sed -i "s|image: myang12/subees-backend:.*|image: myang12/subees-backend:${params.DOCKER_IMAGE_VERSION}|g" k8s/backend/deployment-local.yaml
+                    grep -n "image:" k8s/backend/deployment-local.yaml
+                """
+            }
+        }
+
+        stage('Commit & Push') {
+            when {
+                expression {
+                    return params.DID_BUILD_FRONT == "true" || params.DID_BUILD_BACK == "true"
+                }
+            }
+
+            steps {
+                sh 'git config user.name "jenkins-bot"'
+                sh 'git config user.email "jenkins-bot@example.com"'
+
+                sh '''
+                    echo "=== Git diff before commit ==="
+                    git diff
+                '''
+
+                sh 'git add k8s/frontend/deployment.yaml k8s/backend/deployment-local.yaml'
+                sh "git commit -m 'Update Image Version ${params.DOCKER_IMAGE_VERSION}' || echo 'No changes to commit'"
+                sh 'git status'
+
+                sshagent(['github-subees']) {
+                    sh 'git push origin HEAD:main'
+                }
+            }
+        }
+    }
+}
+```
+  </details>
 </details>
 
 ---
