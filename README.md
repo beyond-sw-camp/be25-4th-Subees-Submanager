@@ -206,7 +206,7 @@
 <summary><b>📑 API 명세서</b></summary>
 <br>
 
-- [API 명세서 바로가기](https://www.notion.so/API-342712dca4bf801a882fcc78e4443f21?source=copy_link)
+- [API 명세서 바로가기](https://github.com/beyond-sw-camp/be25-2nd-Subees-Sub-Manager/blob/main/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EC%9E%91%EC%97%85%EC%9D%B4%EB%AF%B8%EC%A7%80/api%EB%AA%85%EC%84%B8%EC%84%9C.png?raw=true)
 
 <div align="center">
   <img src="./이미지/작업이미지/api명세서.png" alt="API 명세서" width="640" />
