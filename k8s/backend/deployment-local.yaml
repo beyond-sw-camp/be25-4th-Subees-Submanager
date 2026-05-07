@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: subees-backend
-          image: myang12/subees-backend:103
+          image: myang12/subees-backend:119
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
