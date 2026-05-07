@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220">
+  <!-- 가운데 기준점: (450,110) -->
+  <g transform="translate(450 110)">
+    <!-- 글자 스타일 -->
+    <g fill="#FFFFFF"
+       font-size="84"
+       font-weight="900"
+       font-family="Noto Sans KR, Pretendard, Inter, Segoe UI, Arial, sans-serif">
+
+      <!-- 6글자라서 중심이 3~4 글자 사이에 오게 x를 대칭 배치 -->
+      <!-- S -->
+      <text x="-175" y="0" text-anchor="middle" dominant-baseline="middle">S
+        <animateTransform attributeName="transform" type="translate"
+          dur="1.1s" repeatCount="indefinite"
+          values="0 0; 0 -16; 0 0; 0 -8; 0 0"
+          keyTimes="0; .18; .38; .62; 1"
+          calcMode="spline"
+          keySplines=".2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1"
+          begin="0s" />
+      </text>
+
+      <!-- u -->
+      <text x="-105" y="0" text-anchor="middle" dominant-baseline="middle">u
+        <animateTransform attributeName="transform" type="translate"
+          dur="1.1s" repeatCount="indefinite"
+          values="0 0; 0 -16; 0 0; 0 -8; 0 0"
+          keyTimes="0; .18; .38; .62; 1"
+          calcMode="spline"
+          keySplines=".2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1"
+          begin="0.10s" />
+      </text>
+
+      <!-- b -->
+      <text x="-35" y="0" text-anchor="middle" dominant-baseline="middle">b
+        <animateTransform attributeName="transform" type="translate"
+          dur="1.1s" repeatCount="indefinite"
+          values="0 0; 0 -16; 0 0; 0 -8; 0 0"
+          keyTimes="0; .18; .38; .62; 1"
+          calcMode="spline"
+          keySplines=".2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1"
+          begin="0.20s" />
+      </text>
+
+      <!-- e -->
+      <text x="35" y="0" text-anchor="middle" dominant-baseline="middle">e
+        <animateTransform attributeName="transform" type="translate"
+          dur="1.1s" repeatCount="indefinite"
+          values="0 0; 0 -16; 0 0; 0 -8; 0 0"
+          keyTimes="0; .18; .38; .62; 1"
+          calcMode="spline"
+          keySplines=".2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1"
+          begin="0.30s" />
+      </text>
+
+      <!-- e -->
+      <text x="105" y="0" text-anchor="middle" dominant-baseline="middle">e
+        <animateTransform attributeName="transform" type="translate"
+          dur="1.1s" repeatCount="indefinite"
+          values="0 0; 0 -16; 0 0; 0 -8; 0 0"
+          keyTimes="0; .18; .38; .62; 1"
+          calcMode="spline"
+          keySplines=".2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1"
+          begin="0.40s" />
+      </text>
+
+      <!-- s -->
+      <text x="175" y="0" text-anchor="middle" dominant-baseline="middle">s
+        <animateTransform attributeName="transform" type="translate"
+          dur="1.1s" repeatCount="indefinite"
+          values="0 0; 0 -16; 0 0; 0 -8; 0 0"
+          keyTimes="0; .18; .38; .62; 1"
+          calcMode="spline"
+          keySplines=".2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1; .2 .9 .25 1"
+          begin="0.50s" />
+      </text>
+
+    </g>
+  </g>
+</svg>
