@@ -36,6 +36,7 @@ spec:
         DISCORD_WEBHOOK_CREDENTIALS_ID = 'discord-webhook'
     }
 
+    stages {
         stage('Detect Changes') {
             steps {
                 script {
@@ -160,7 +161,6 @@ spec:
                 }
             }
         }
-    
 
     post {
         success {
