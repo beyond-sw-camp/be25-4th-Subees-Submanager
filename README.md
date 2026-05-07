@@ -193,10 +193,10 @@
 <summary><b>🏗️ 시스템 아키텍처</b></summary>
 <br>
 
-- [시스템 아키텍처 바로가기](https://app.cloudcraft.co/view/861df300-1950-40d0-9379-f620c6eecfff?key=c2b40a58-e62b-4c42-aef1-63be712683c9)
+- [시스템 아키텍처 바로가기](https://app.diagrams.net/#G1JDwLLL4xfX0e0U0cLz28kp5N0y4WSYoI#%7B%22pageId%22%3A%22VJg5SazhZ7BHUMWceYld%22%7D)
 
 <div align="center">
-  <img src="https://github.com/beyond-sw-camp/be25-2nd-Subees-Sub-Manager/blob/main/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EC%9E%91%EC%97%85%EC%9D%B4%EB%AF%B8%EC%A7%80/%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png?raw=true" alt="시스템 아키텍처" width="640" />
+  <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/작업이미지/아키텍처_원본.drawio.svg?raw=true" alt="시스템 아키텍처" width="640" />
 </div>
 
 </details>
