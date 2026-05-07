@@ -36,7 +36,6 @@ spec:
         DISCORD_WEBHOOK_CREDENTIALS_ID = 'discord-webhook'
     }
 
-    stages {
         stage('Detect Changes') {
             steps {
                 script {
@@ -57,18 +56,16 @@ spec:
                         it.startsWith("backend/")
                     } ? "true" : "false"
 
+                    env.ONLY_K8S_CHANGED = changedFiles.size() > 0 && changedFiles.every {
+                        it.startsWith("k8s/")
+                    } ? "true" : "false"
+
                     echo "SHOULD_BUILD_FRONT : ${env.SHOULD_BUILD_FRONT}"
                     echo "SHOULD_BUILD_BACK : ${env.SHOULD_BUILD_BACK}"
+                    echo "ONLY_K8S_CHANGED : ${env.ONLY_K8S_CHANGED}"
                 }
             }
         }
-
-        stage('Docker Login') {
-            when {
-                expression {
-                    return env.SHOULD_BUILD_FRONT == "true" || env.SHOULD_BUILD_BACK == "true"
-                }
-            }
 
             steps {
                 container('docker') {
