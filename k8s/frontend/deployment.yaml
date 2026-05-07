@@ -17,7 +17,7 @@ spec:
       containers:
         - name: subees-frontend
 
-          image: myang12/subees-frontend:103
+          image: myang12/subees-frontend:104
 
           imagePullPolicy: Always
           ports:
