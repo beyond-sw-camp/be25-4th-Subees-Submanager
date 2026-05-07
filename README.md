@@ -1,10 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/beyond-sw-camp/be25-2nd-Subees-Sub-Manager/8140d7060dddb394ab8b46295d534e70c3024dba/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%B0%B0%EB%84%88/%EB%B0%B0%EB%84%88.svg" alt="Subees 배너" width="900" />
-
-<br/>
-
-<img src="./이미지/로고/Subees_Logo.png" alt="Subees Logo" width="320" />
+<img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/logo/Subees_Logo.png?raw=true" alt="Subees Logo" width="320" />
 
 <br/><br/>
 
@@ -45,7 +41,7 @@
 <table align="center">
   <tr>
     <td align="center" width="180">
-      <img src="./이미지/깃허브_사진/가영.png" width="160" height="160" style="object-fit:cover; border-radius:14px; display:block; margin:0 auto;" alt="조장: 김가영" />
+      <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/%EA%B9%83%ED%97%88%EB%B8%8C_%EC%82%AC%EC%A7%84/%EA%B0%80%EC%98%81.png?raw=true" width="160" height="160" style="object-fit:cover; border-radius:14px; display:block; margin:0 auto;" alt="조장: 김가영" />
       <br />
       <b>조장: 김가영</b>
       <br />
@@ -55,7 +51,7 @@
     </td>
 
   <td align="center" width="180">
-      <img src="./이미지/깃허브_사진/다솜.png" width="160" height="160" style="object-fit:cover; border-radius:14px; display:block; margin:0 auto;" alt="김다솜" />
+      <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/%EA%B9%83%ED%97%88%EB%B8%8C_%EC%82%AC%EC%A7%84/%EB%8B%A4%EC%86%9C.png?raw=true" width="160" height="160" style="object-fit:cover; border-radius:14px; display:block; margin:0 auto;" alt="김다솜" />
       <br />
       <b>김다솜</b>
       <br />
@@ -65,7 +61,7 @@
     </td>
 
   <td align="center" width="180">
-      <img src="./이미지/깃허브_사진/승욱.png" width="160" height="160" style="object-fit:cover; border-radius:14px; display:block; margin:0 auto;" alt="김승욱" />
+      <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/%EA%B9%83%ED%97%88%EB%B8%8C_%EC%82%AC%EC%A7%84/%EC%8A%B9%EC%9A%B1.png?raw=true" width="160" height="160" style="object-fit:cover; border-radius:14px; display:block; margin:0 auto;" alt="김승욱" />
       <br />
       <b>김승욱</b>
       <br />
@@ -75,17 +71,7 @@
     </td>
 
   <td align="center" width="180">
-      <img src="./이미지/깃허브_사진/민수.png" width="160" height="160" style="object-fit:cover; border-radius:14px; display:block; margin:0 auto;" alt="신민수" />
-      <br />
-      <b>신민수</b>
-      <br />
-      <a href="https://github.com/ZonezIpex">
-        <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-      </a>
-    </td>
-
-  <td align="center" width="180">
-      <img src="./이미지/깃허브_사진/서윤.png" width="160" height="160" style="object-fit:cover; border-radius:14px; display:block; margin:0 auto;" alt="이서윤" />
+      <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/%EA%B9%83%ED%97%88%EB%B8%8C_%EC%82%AC%EC%A7%84/%EC%84%9C%EC%9C%A4.png?raw=true" width="160" height="160" style="object-fit:cover; border-radius:14px; display:block; margin:0 auto;" alt="이서윤" />
       <br />
       <b>이서윤</b>
       <br />
@@ -185,9 +171,9 @@
 
 ---
 
-<a id="테이블-명세서-및-제약-조건"></a>
+<a id="테이블-명세서"></a>
 <details>
-<summary><b>📋 테이블 명세서 및 제약 조건</b></summary>
+<summary><b>📋 테이블 명세서</b></summary>
 <br>
 
 - [테이블 명세서 바로가기](https://docs.google.com/spreadsheets/d/1t28YAF3teou6grdUzRbnRs2NyKi5boFY/edit?gid=2057065080#gid=2057065080)
