@@ -92,6 +92,8 @@
 - [🗺️ ERD](#erd)
 - [📋 테이블 명세서](#테이블-명세서)
 - [🏗️ 시스템 아키텍처](#시스템-아키텍처)
+- [🔨 빌드 및 배포 스크립트](#빌드-및-배포-스크립트)
+- [📹 CI/CD 결과](#CI/CD-결과)
 - [📑 API 명세서](#api-명세서)
 - [📝 회고록](#회고록)
 
@@ -201,15 +203,34 @@
 
 ---
 
+<a id="빌드-및-배포-스크립트"></a>
+<details>
+<summary><b>🔨 빌드 및 배포 스크립트</b></summary>
+<br>
+
+</details>
+
+---
+
+<a id="CI/CD-결과"></a>
+<details>
+<summary><b>📹 CI/CD 결과</b></summary>
+<br>
+
+
+</details>
+
+---
+
 <a id="api-명세서"></a>
 <details>
 <summary><b>📑 API 명세서</b></summary>
 <br>
 
-- [API 명세서 바로가기](https://github.com/beyond-sw-camp/be25-2nd-Subees-Sub-Manager/blob/main/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EC%9E%91%EC%97%85%EC%9D%B4%EB%AF%B8%EC%A7%80/api%EB%AA%85%EC%84%B8%EC%84%9C.png?raw=true)
+- [API 명세서 바로가기](https://www.notion.so/API-342712dca4bf801a882fcc78e4443f21?source=copy_link)
 
 <div align="center">
-  <img src="./이미지/작업이미지/api명세서.png" alt="API 명세서" width="640" />
+  <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/%EC%9E%91%EC%97%85%EC%9D%B4%EB%AF%B8%EC%A7%80/api%EB%AA%85%EC%84%B8%EC%84%9C.png?raw=true" alt="API 명세서" width="640" />
 </div>
 
 </details>
