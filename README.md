@@ -100,7 +100,6 @@
 ## 📚 DevOps Repository 목차
 
 - [📌 프로젝트 개요](#프로젝트-개요)
-- [🎯 서비스 목표](#서비스-목표)
 - [🧾 요구사항 정의서](#요구사항-정의서)
 - [🗺️ ERD](#erd)
 - [📋 테이블 명세서](#테이블-명세서)
@@ -117,7 +116,7 @@
 <summary><b>📌 프로젝트 개요</b></summary>
 <br>
 
-### 프로젝트 배경
+#### 프로젝트 배경
 국내 구독 시장의 성장으로 사용자 1인당 평균 3개 이상의 서비스를 이용하는 것이 일반화되었지만,  
 서비스가 플랫폼별로 분산되어 있어 구독 정보와 결제 내역을 한눈에 파악하기 어려운 문제가 발생하고 있습니다.
 
@@ -129,7 +128,9 @@
 
 <br>
 
-### 👥 타겟 사용자
+---
+
+#### 👥 타겟 사용자
 - 월 3개 이상의 구독 서비스를 이용 중인 사용자
 - 카드 및 결제 수단별로 분산된 구독 정보를 통합 관리하고 싶은 사용자
 - 무료 체험 종료 후 자동 결제를 놓쳐 불필요한 지출을 경험한 사용자
@@ -137,8 +138,8 @@
 
 <br>
 
-### 🎯 서비스 목표
-#### Backend
+#### 🎯 서비스 목표
+##### Backend
 - 사용자 구독 정보와 결제 데이터를 통합 관리할 수 있는 백엔드 시스템 구축
 - 결제일, 금액, 주기 등 핵심 데이터를 안정적으로 관리
 - 알림, 분석, 추천 기능에 필요한 데이터를 일관성 있게 제공
@@ -148,20 +149,20 @@
 - 차트 및 대시보드를 활용한 소비 패턴 시각화
 - 모바일 및 데스크톱 환경 모두에서 일관된 사용자 경험 제공 -->
 
-#### DevOps
+##### DevOps
 - 자동화 배포 환경 구축
 - Kubernetes 기반 컨테이너 오케스트레이션을 통한 안정적인 서비스 운영
 - CI/CD 파이프라인을 활용한 빠른 배포 및 운영 자동화
 <br>
 
-### 💡 기대 효과
+#### 💡 기대 효과
 - 중복 및 미사용 구독 관리로 불필요한 소비 감소
 - 결제 예정 및 자동 결제 알림을 통한 지출 관리 효율 향상
 - 월별·카테고리별 소비 분석을 통한 소비 패턴 파악
 - 사용자 맞춤형 추천 기능을 통한 합리적인 구독 선택 지원
 <br>
 
-### 주요 기능
+####   주요 기능
 💳 **구독 자산 관리**<br>
 구독 서비스의 결제일, 금액, 결제 주기 등 핵심 정보를 통합 관리하고,  
 구독 상태(활성 / 해지)를 기준으로 전체 구독 현황을 한눈에 조회할 수 있도록 설계했습니다.
@@ -243,7 +244,7 @@
 <summary><b>🏗️ 시스템 아키텍처</b></summary>
 <br>
 
-- [시스템 아키텍처 바로가기](https://drive.google.com/file/d/1JDwLLL4xfX0e0U0cLz28kp5N0y4WSYoI/view?usp=drive_link)
+- [시스템 아키텍처 바로가기](https://drive.google.com/file/d/1JDwLLL4xfX0e0U0cLz28kp5N0y4WSYoI/view)
 
 <div align="center">
   <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/작업이미지/아키텍처_원본.drawio.svg?raw=true" alt="시스템 아키텍처" width="640" />
@@ -257,6 +258,8 @@
 <details>
 <summary><b>🔨 빌드 및 배포 스크립트</b></summary>
 <br>
+<details>
+  <summary>JenkinsFile - Subees </summary>
 
 ```groovy
 pipeline {
@@ -468,6 +471,102 @@ spec:
 
 </details>
 
+<details>
+  <summary>JenkinsFile - K8s </summary>
+  
+```groovy
+  pipeline {
+    agent any
+
+    parameters {
+        string(name: 'DOCKER_IMAGE_VERSION', defaultValue: '', description: 'Docker Image Version')
+        string(name: 'DID_BUILD_FRONT', defaultValue: 'false', description: 'Did Build Frontend')
+        string(name: 'DID_BUILD_BACK', defaultValue: 'false', description: 'Did Build Backend')
+    }
+
+    environment {
+        GIT_BRANCH = 'main'
+    }
+
+    stages {
+        stage('Checkout Main Branch') {
+            steps {
+                checkout scm
+
+                sh '''
+                    git config --global --add safe.directory "$WORKSPACE"
+                    git checkout main || git checkout -B main origin/main
+                '''
+
+                echo "DOCKER_IMAGE_VERSION: ${params.DOCKER_IMAGE_VERSION}"
+                echo "DID_BUILD_FRONT: ${params.DID_BUILD_FRONT}"
+                echo "DID_BUILD_BACK: ${params.DID_BUILD_BACK}"
+            }
+        }
+
+        stage('Update Frontend deploy.yaml') {
+            when {
+                expression {
+                    return params.DID_BUILD_FRONT == "true"
+                }
+            }
+
+            steps {
+                sh """
+                    echo "Received Docker Image Version : ${params.DOCKER_IMAGE_VERSION}"
+                    sed -i "s|image: myang12/subees-frontend:.*|image: myang12/subees-frontend:${params.DOCKER_IMAGE_VERSION}|g" k8s/frontend/deployment.yaml
+                    grep -n "image:" k8s/frontend/deployment.yaml
+                """
+            }
+        }
+
+        stage('Update Backend deploy.yaml') {
+            when {
+                expression {
+                    return params.DID_BUILD_BACK == "true"
+                }
+            }
+
+            steps {
+                sh """
+                    echo "Received Docker Image Version : ${params.DOCKER_IMAGE_VERSION}"
+                    sed -i "s|image: myang12/subees-backend:.*|image: myang12/subees-backend:${params.DOCKER_IMAGE_VERSION}|g" k8s/backend/deployment-local.yaml
+                    grep -n "image:" k8s/backend/deployment-local.yaml
+                """
+            }
+        }
+
+        stage('Commit & Push') {
+            when {
+                expression {
+                    return params.DID_BUILD_FRONT == "true" || params.DID_BUILD_BACK == "true"
+                }
+            }
+
+            steps {
+                sh 'git config user.name "jenkins-bot"'
+                sh 'git config user.email "jenkins-bot@example.com"'
+
+                sh '''
+                    echo "=== Git diff before commit ==="
+                    git diff
+                '''
+
+                sh 'git add k8s/frontend/deployment.yaml k8s/backend/deployment-local.yaml'
+                sh "git commit -m 'Update Image Version ${params.DOCKER_IMAGE_VERSION}' || echo 'No changes to commit'"
+                sh 'git status'
+
+                sshagent(['github-subees']) {
+                    sh 'git push origin HEAD:main'
+                }
+            }
+        }
+    }
+}
+```
+  </details>
+</details>
+
 ---
 
 <a id="CI/CD-결과"></a>
@@ -506,18 +605,18 @@ spec:
 <br>
 
 
-### ✏️ 김가영
+#### ✏️ 김가영
 >
 <br>
 
-### ✏️ 김다솜
+#### ✏️ 김다솜
 >
 <br>
 
-### ✏️ 김승욱
->
+#### ✏️ 김승욱
+> 젠킨스, 도커, 아르고CD를 활용한 배포 프로젝트를 통해 CI/CD 파이프라인의 전체 흐름을 이해할 수 있었습니다. 빌드 자동화, 실행 환경의 컨테이너화, 쿠버네티스 환경 활용 등을 경험했습니다. 이번 과정을 통해 배포 단계의 중요성과 데브옵스 환경이 어떻게 운영되는지 배울 수 있었습니다.
 <br>
 
-### ✏️ 이서윤
+#### ✏️ 이서윤
 >
 </details>
