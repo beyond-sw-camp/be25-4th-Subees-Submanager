@@ -35,14 +35,14 @@
 
 ### Database
 <img src="https://img.shields.io/badge/MariaDB-1f2937?style=for-the-badge&logo=mariadb&logoColor=white" />
-<img src="https://img.shields.io/badge/HeidiSQL-1f2937?style=for-the-badge&logoColor=white" />
 
-### Collaboration
+### Tools & Collaboration
 <img src="https://img.shields.io/badge/GitHub-6b7280?style=for-the-badge&logo=github&logoColor=white" />
 <img src="https://img.shields.io/badge/Discord-6b7280?style=for-the-badge&logo=discord&logoColor=white" />
 <img src="https://img.shields.io/badge/Notion-6b7280?style=for-the-badge&logo=notion&logoColor=white" />
 <img src="https://img.shields.io/badge/Figma-6b7280?style=for-the-badge&logo=figma&logoColor=white" />
 <img src="https://img.shields.io/badge/Postman-6b7280?style=for-the-badge&logo=postman&logoColor=white" />
+<img src="https://img.shields.io/badge/HeidiSQL-6b7280?style=for-the-badge&logoColor=white" />
 
 </div>
 
