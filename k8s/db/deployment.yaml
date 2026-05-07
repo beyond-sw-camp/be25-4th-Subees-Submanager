@@ -25,6 +25,12 @@ spec:
             - name: MARIADB_DATABASE
               value: subscription_db
 
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  name: global-config
+                  key: TZ
+
             - name: MARIADB_USER
               valueFrom:
                 secretKeyRef:
