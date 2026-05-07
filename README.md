@@ -475,10 +475,10 @@ spec:
 <summary><b>📹 CI/CD 결과</b></summary>
 <br>
   
-- [CI & CD 결과 바로가기]( )
+- [CI & CD 결과 바로가기](https://www.youtube.com/watch?v=IAEgeNFAE30&feature=youtu.be)
 
 <div align="center">
-  <img src="" alt="CI/CD 결과" width="640" />
+  <img src="https://github.com/beyond-sw-camp/be25-4th-Subees-Submanager/blob/main/images/%EC%9E%91%EC%97%85%EC%9D%B4%EB%AF%B8%EC%A7%80/CI%20CD%20test.png?raw=true" alt="CI/CD 결과" width="640" />
 </div>
 
 </details>
