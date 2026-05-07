@@ -243,7 +243,7 @@
 <summary><b>🏗️ 시스템 아키텍처</b></summary>
 <br>
 
-- [시스템 아키텍처 바로가기](https://app.diagrams.net/#G1JDwLLL4xfX0e0U0cLz28kp5N0y4WSYoI#%7B%22pageId%22%3A%22VJg5SazhZ7BHUMWceYld%22%7D)
+- [시스템 아키텍처 바로가기](https://drive.google.com/file/d/1JDwLLL4xfX0e0U0cLz28kp5N0y4WSYoI/view?usp=drive_link)
 
 <div align="center">
   <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/작업이미지/아키텍처_원본.drawio.svg?raw=true" alt="시스템 아키텍처" width="640" />
