@@ -67,6 +67,7 @@ spec:
             }
         }
 
+
             steps {
                 container('docker') {
                     withCredentials([usernamePassword(
@@ -159,7 +160,7 @@ spec:
                 }
             }
         }
-    }
+    
 
     post {
         success {
