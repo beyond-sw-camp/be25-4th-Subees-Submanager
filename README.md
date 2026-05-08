@@ -239,6 +239,21 @@
 
 ---
 
+<a id="api-명세서"></a>
+<details>
+<summary><b>📑 API 명세서</b></summary>
+<br>
+
+- [API 명세서 바로가기](https://www.notion.so/API-342712dca4bf801a882fcc78e4443f21?source=copy_link)
+
+<div align="center">
+  <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/%EC%9E%91%EC%97%85%EC%9D%B4%EB%AF%B8%EC%A7%80/api%EB%AA%85%EC%84%B8%EC%84%9C.png?raw=true" alt="API 명세서" width="640" />
+</div>
+
+</details>
+
+---
+
 <a id="시스템-아키텍처"></a>
 <details>
 <summary><b>🏗️ 시스템 아키텍처</b></summary>
@@ -584,21 +599,6 @@ spec:
 
 ---
 
-<a id="api-명세서"></a>
-<details>
-<summary><b>📑 API 명세서</b></summary>
-<br>
-
-- [API 명세서 바로가기](https://www.notion.so/API-342712dca4bf801a882fcc78e4443f21?source=copy_link)
-
-<div align="center">
-  <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/%EC%9E%91%EC%97%85%EC%9D%B4%EB%AF%B8%EC%A7%80/api%EB%AA%85%EC%84%B8%EC%84%9C.png?raw=true" alt="API 명세서" width="640" />
-</div>
-
-</details>
-
----
-
 <a id="회고록"></a>
 <details>
 <summary><b>📝 회고록</b></summary>
@@ -606,7 +606,8 @@ spec:
 
 
 #### ✏️ 김가영
->
+>이번 프로젝트를 통해 단순히 애플리케이션을 개발하는 것을 넘어 실제 서비스 운영 환경과 유사한 DevOps 파이프라인을 경험할 수 있었다.
+특히 Jenkins, Docker, Kubernetes, Argo CD를 하나의 흐름으로 연결하면서 자동화의 중요성을 체감하였고, 수동 배포 대비 안정성과 생산성이 크게 향상된다는 점을 배울 수 있었다.또한 문제 발생 시 로그를 분석하고 원인을 추적하는 과정에서 트러블슈팅 능력 역시 향상될 수 있었으며, 직접 개발한 서비스를 실제 배포 환경까지 연결해보며 웹 개발 과정 전체를 경험할 수 있어 더욱 의미 있었고, 배포와 운영의 중요성에 대해서도 깊이 이해할 수 있었다.
 <br>
 
 #### ✏️ 김다솜
