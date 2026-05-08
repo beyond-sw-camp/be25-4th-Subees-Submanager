@@ -1,3 +1,7 @@
+/*
+*새로 push된 Docker image tag를 Kubernetes Deployment YAML에 반영하고,
+* 그 변경사항을 GitHub main branch에 다시 push한다
+*/
 pipeline {
     agent any
 

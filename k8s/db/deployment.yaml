@@ -29,7 +29,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: global-config
-                  key: TZ
+                  key: TIMExp-ZONE
 
             - name: MARIADB_USER
               valueFrom:

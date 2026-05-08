@@ -1,3 +1,8 @@
+/*
+* 파이프라인 실행환경 세팅
+* Kubernetes 위에 임시 Jenkins agent Pod를 띄워서 실행
+* 파드 안에 컨테이너 2개
+*/
 pipeline {
     agent {
         kubernetes {
@@ -28,15 +33,30 @@ spec:
 '''
         }
     }
+    options {
+        skipDefaultCheckout(true)
+    }
 
+// 환경 변수
     environment {
         FRONT_IMAGE = 'myang12/subees-frontend'
         BACK_IMAGE = 'myang12/subees-backend'
         DOCKER_CREDENTIALS_ID = 'dockerhub-access'
         DISCORD_WEBHOOK_CREDENTIALS_ID = 'discord-webhook'
     }
-
+/* 
+* 첫 스테이지 : 변경 감지
+* 현재 커밋과 바로 이전 커밋을 비교하여 바뀐 파일 목록을 가져옴
+* 백엔드, 프론트 아래 파일이 하나라도 바뀌면 빌드
+* k8s 아래 수정 시 도커로그인, 백, 프론트 빌드, 트리거 스킵
+*/
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Detect Changes') {
             steps {
                 script {
@@ -72,6 +92,9 @@ spec:
             }
         }
 
+/*
+* 프론트, 백엔드 중 하나라도 빌드할 때만 도커 허브 로그인
+*/
         stage('Docker Login') {
             when {
                 expression {
@@ -91,7 +114,11 @@ spec:
                 }
             }
         }
-
+/*
+* backend/ 변경 있을 시 실행
+* Maven 컨테이너에서 Spring Boot jar 파일 만든다. 테스트 실행 X
+* 도커 컨테이너에서  Jenkins BUILD_NUMBER를 Docker image tag로 사용하고 도커 허브 푸쉬
+*/
         stage('Backend Image Build & Push') {
             when {
                 expression {
@@ -123,7 +150,10 @@ spec:
                 }
             }
         }
-
+/*
+* fronted/ 변경이 있을 때만 실행
+* 프론트 도커파일 내부에서 npm ci, npm run build Nginx 이미지 생성까지 처리
+*/
         stage('Frontend Image Build & Push') {
             when {
                 expression {
@@ -149,7 +179,10 @@ spec:
                 }
             }
         }
-
+/*
+* 이미지를 새로 만들었을 시 두번 째 jenkins job 호출
+* 이번에 만든 이미지 태그, 프론트, 백 빌드 여부 k8s job 끝날 때까지 첫 job wait
+*/
         stage('Trigger k8s-manifests Job') {
             when {
                 expression {
@@ -172,7 +205,7 @@ spec:
             }
         }
     }
-
+// 빌드 성공 여부 디코 알림
     post {
         success {
             withCredentials([string(
