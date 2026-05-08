@@ -262,7 +262,7 @@
 - [시스템 아키텍처 바로가기](https://drive.google.com/file/d/1JDwLLL4xfX0e0U0cLz28kp5N0y4WSYoI/view)
 
 <div align="center">
-  <img src="https://github.com/beyond-sw-camp/be25-4th-1team-project/blob/dev/images/작업이미지/아키텍처_원본.drawio.svg?raw=true" alt="시스템 아키텍처" width="640" />
+  <img src="https://github.com/beyond-sw-camp/be25-4th-Subees-Submanager/blob/main/images/%EC%9E%91%EC%97%85%EC%9D%B4%EB%AF%B8%EC%A7%80/%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png?raw=true" alt="시스템 아키텍처" width="640" />
 </div>
 
 </details>
