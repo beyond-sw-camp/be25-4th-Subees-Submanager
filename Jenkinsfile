@@ -1,4 +1,10 @@
 /*
+  1. 코드 checkout
+  2. 변경 파일 감지
+  3. 변경된 frontend/backend만 Docker image build
+  4. Docker Hub에 image push
+  5. Jenkinsfile.k8s Job 호출
+
 * 파이프라인 실행환경 세팅
 * Kubernetes 위에 임시 Jenkins agent Pod를 띄워서 실행
 * 파드 안에 컨테이너 2개

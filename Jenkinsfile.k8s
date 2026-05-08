@@ -2,6 +2,23 @@
 *새로 push된 Docker image tag를 Kubernetes Deployment YAML에 반영하고,
 * 그 변경사항을 GitHub main branch에 다시 push한다
 */
+
+/*
+*파이프라인은 단독으로 실행되는 게 아니라, 앞 Jenkinsfile에서 호출
+DOCKER_IMAGE_VERSION → 새로 만든 Docker image tag
+
+DID_BUILD_FRONT→ 프론트엔드 이미지를 새로 빌드했는지 여부
+
+
+DID_BUILD_BACK → 백엔드 이미지를 새로 빌드했는지 여부
+→ "true" 또는 "false"
+
+예를 들어 프론트엔드만 빌드됐고 Jenkins 빌드 번호가 138이면:
+
+DOCKER_IMAGE_VERSION = 138
+DID_BUILD_FRONT = true
+DID_BUILD_BACK = false
+*/
 pipeline {
     agent any
 
@@ -10,11 +27,17 @@ pipeline {
         string(name: 'DID_BUILD_FRONT', defaultValue: 'false', description: 'Did Build Frontend')
         string(name: 'DID_BUILD_BACK', defaultValue: 'false', description: 'Did Build Backend')
     }
-
+//  Git 작업 기준 브랜치를 main으로 지정한 값
     environment {
         GIT_BRANCH = 'main'
     }
+//첫 번째 stage는 GitHub 저장소 코드를 Jenkins workspace로 가져오는 단계
+/*
+1. 로컬에 main 브랜치가 있으면 git checkout main 실행
+2. 없으면 origin/main을 기준으로 main 브랜치를 새로 만들고 checkout
 
+이후 앞 파이프라인에서 전달받은 image tag와 frontend/backend 빌드 여부를 로그로 확인합니다
+*/
     stages {
         stage('Checkout Main Branch') {
             steps {
@@ -30,7 +53,9 @@ pipeline {
                 echo "DID_BUILD_BACK: ${params.DID_BUILD_BACK}"
             }
         }
-
+// 이 stage는 프론트엔드가 새로 빌드됐을 때만 실행. true 실행 false 스킵
+// image tag를 새 Docker image version으로 교체
+// sed 명령으로 기존 tag를 찾아 바꾸고, grep으로 변경 결과를 로그에 출력
         stage('Update Frontend deploy.yaml') {
             when {
                 expression {
@@ -46,7 +71,7 @@ pipeline {
                 """
             }
         }
-
+// 이 stage는 백엔드가 새로 빌드됐을 때만 실행
         stage('Update Backend deploy.yaml') {
             when {
                 expression {
@@ -62,7 +87,7 @@ pipeline {
                 """
             }
         }
-
+//  이 stage는 프론트나 백엔드 중 하나라도 빌드됐을 때만 실행
         stage('Commit & Push') {
             when {
                 expression {
